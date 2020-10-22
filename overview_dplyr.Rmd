@@ -199,7 +199,7 @@ Example 1: How do we get all penguins of the Chinstrap species?
 
 Example 1: How do we get all penguins of the Chinstrap species?
 
-```{r eval = FALSE, message = FALSE, fig.cap= "A tibble showing the data filtered by chinstrap."}
+```{r eval = FALSE, message = FALSE}
 chinstrap <- filter(penguins, species == "Chinstrap")
 ```
 
@@ -212,7 +212,7 @@ chinstrap <- filter(penguins, species == "Chinstrap")
 
 Example 1: How do we get all penguins of the Chinstrap species?
 
-```{r message = FALSE}
+```{r message = FALSE, fig.cap= "A tibble showing the data filtered by chinstrap."}
 chinstrap <- filter(penguins, species == "Chinstrap")
 chinstrap
 ```
@@ -638,7 +638,7 @@ gr_penguins %>% summarise(num_penguins = n(),
 
 Example: using `summarise` to get the range of bill lengths for each species of penguin:
 
-```{r fig.cap = "A tibble with 2 columns. The 1st column has each species name in two consecutive rows. The 2nd column features the minimum and maximum bill lengths for each species in alternating rows."}
+```{r fig.cap = "A tibble with two columns. The first column has each species name in two consecutive rows. The 2nd column features the minimum and maximum bill lengths for each species in alternating rows."}
 penguins %>% 
   group_by(species) %>%
   summarise(rng = range(bill_length_mm, na.rm = TRUE))
@@ -650,7 +650,7 @@ penguins %>%
 
 Example: using `summarise` to find the minimum and maximum mass penguin on each island:
 
-```{r fig.cap = "A tibble with 3 columns. The first column contains the names of the islands. The 2nd column contains the minimum mass of a penguin on the corresponding island. The 3rd column contains the maximum mass of a penguin on the island." }
+```{r fig.cap = "A tibble with three columns. The first column contains the names of the islands. The 2nd column contains the minimum mass of a penguin on the corresponding island. The 3rd column contains the maximum mass of a penguin on the island." }
 penguins %>% 
   group_by(island) %>%
   summarise(tibble(min_mass = min(body_mass_g, na.rm = TRUE),
